@@ -1,6 +1,6 @@
 // start
 // user input variables
-var enter;
+var passwordLength;
 var confirmNumber;
 var confirmCharacter;
 var comfirmUpper;
@@ -60,5 +60,5 @@ function generatePassword() {
 
 
 
-    
+
 };
