@@ -99,27 +99,33 @@ function generatePassword() {
     } else if (confirmUpper) {
         userSelection = alphabetUppercase;
     }
-
-    else if (confirmUpper) {
-        userSelection = space.concat(alphabetUppercase);
-    }
-
-
-    //empty array to store password
+    //empty array to store final password
     var finalPassword = [""];
-
     //randomly select characters based on userSelection
     for (var i = 0; i < passwordLength; i++) {
     var randomPassword = userSelection[Math.floor(Math.random() * userSelection.length)];
+    //".push" adds the array passed to it to the original array 
+    //i.e. randomPassword will be added to the variable finalPassword, which is empty
     finalPassword.push(randomPassword);
     }
 
+    //".join" gets the returned array from finalPassword and joins them together
+    //the parameter determines what it should be joined together by, in this case, nothing
     var password = finalPassword.join('');
+    // currently don't know how to explain this one
     userInput(password);
     return password;
-    
 }
-
+//currently don't know how to explain this one either
 function userInput(password) {
     document.getElementById("password").textContent = password;
+    //log password to console
+    console.log(password);
+    //log password length to console
+    console.log("Password length: " + password.length);
+    //add more "password facts" here and log to console
 }
+
+//copy password automatically, display alert: "this password has been copied to your clipboard for your convenience"
+
+//end
