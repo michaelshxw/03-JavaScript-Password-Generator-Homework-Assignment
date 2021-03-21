@@ -1,32 +1,34 @@
 // start
 // user input variables
 var passwordLength;
+
 var confirmNumber;
 var confirmCharacter;
 var comfirmUpper;
 var confirmLower;
+123, 124, 134, 234 ;
+//globally declared variables
+var userSelection;
 // start password variable values
 // alphabetical characters
-alphabet = "a b c d e f g h i j k l m n o p q r s t u v w x y z"
-alpha = alphabet.split (' ');
+var fullAlphabet = "a b c d e f g h i j k l m n o p q r s t u v w x y z"
+var alphabet = fullAlphabet.split (' ');
 // convert letters to uppercase 
-// reference "below code demonstrated: "
+// reference "below code demonstrated: REFERENCE "
 var upperCase = function(x) {
     return x.toUpperCase();
 };
 // create a variable to store the uppercase characters
-alphaUppercase = alpha.map(upperCase);
+var alphabetUppercase = alphabet.map(upperCase);
 // numeric characters
-number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+var number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // special characters
-character = ["!", "@", "#", "$", "%", "&", "*", "_", "-", "=", "+", "~", ">", "<", "[", "]", "{", "}", "|"]
-
-// user selection variable declared outside the if statement so it's in the global execution context
-var userSelection;
-
+var character = ["!", "@", "#", "$", "%", "&", "*", "_", "-", "=", "+", "~", ">", "<", "[", "]", "{", "}", "|"]
+// get the generate button and assign it to variable generateBtn
 var generateBtn = document.querySelector('#generate')
-
+// add event listener to generateBtn
 generateBtn.addEventListener("click", function() {
+    // once clicked, run function generatePassword and insert text into target id="password"
     password = generatePassword();
     document.getElementById("password").textContent = password;
 });
@@ -34,7 +36,8 @@ generateBtn.addEventListener("click", function() {
 // start function to generate password
 function generatePassword() {
     
-    //parseInt makes the output a number
+    //parseInt ensures the output is a number
+    //reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
     var passwordLength = parseInt(prompt("Number of characters: (Min 8, Max 128)", "8")); 
     
     // first if statement
@@ -52,13 +55,27 @@ function generatePassword() {
         confirmLower = confirm("Would you like to include lowercase characters?");
     };
 
-    //if statement for 4 negative selections
+    //if statements for user selections
+    //4 negative selections
     if (!confirmNumber && !confirmCharacter && !confirmUpper && !confirmLower) {
-        alert("You must choose at least one character type!");
-    };
-
-
-
-
+        userSelection = alert("You must choose at least one character type!");
+    }
+    //4 positive selections
+    else if (confirmNumber && confirmCharacter && confirmUpper && confirmLower) {
+        userSelection = character.concat(number, alphabet, alphabetUppercase)
+        console.log(userSelection);
+    }
+    //3 positive selections
+    else if (confirmNumber &&confirmCharacter && confirmLower){
+        userSelection = character.concat(number, alphabet)
+    } else if (confirmNumber &&confirmCharacter && confirmUpper){
+        userSelection = character.concat(number, alphabetUppercase)
+    } else if (confirmNumber && confirmUpper && confirmLower){
+        userSelection = number.concat(alphabet, alphabetUppercase)
+    } else if (confirmCharacter && confirmUpper && confirmLower){
+        userSelection = character.concat(alphabet, alphabetUppercase)
+    }
+    console.log(userSelection);
 
 };
+
