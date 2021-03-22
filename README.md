@@ -7,6 +7,8 @@ This password generator was created for a homework assignment for UWA's coding b
 
 This application makes use of Javascript to generate a random, secure password for the user. 
 
+![](Assets/Images/overview.png)
+
 ### Getting Started
 
 This project has been deployed to GitHub Pages. To use this password generator, you can follow the deployment link. Or, download the source files to use this as a template.
