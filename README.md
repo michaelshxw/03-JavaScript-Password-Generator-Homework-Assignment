@@ -13,8 +13,8 @@ This application makes use of Javascript to generate a random, secure password f
 
 This project has been deployed to GitHub Pages. To use this password generator, you can follow the deployment link. Or, download the source files to use this as a template.
 
-* [Deployed GitHub IO](https://michaelshxw.github.io/03-JavaScript-Password-Generator-Homework-Assignment/)
-* [GitHub Repository](https://github.com/michaelshxw/03-JavaScript-Password-Generator-Homework-Assignment)
+* [Deployed GitHub IO](https://michaelshxw.github.io/JavaScript-Password-Generator)
+* [GitHub Repository](https://github.com/michaelshxw/JavaScript-Password-Generator)
 
 ### Prerequisites
 To install this application, a text editor such as Visual Studio Code is required. This can be downloaded [here](https://code.visualstudio.com/download)
