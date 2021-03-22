@@ -96,7 +96,7 @@ function generatePassword() {
     }
     //empty array to store final password
     var finalPassword = [];
-    //randomly select characters based on userSelection
+    //"randomly" select characters based on userSelection
     for (var i = 0; i < passwordLength; i++) {
     var randomPassword = userSelection[Math.floor(Math.random() * userSelection.length)];
     //".push" adds the array passed to it to the original array 
@@ -106,13 +106,13 @@ function generatePassword() {
 
     //".join" gets the returned array from finalPassword and joins them together
     //the parameter determines what it should be joined together by, in this case, nothing
+    //a space in this parameter will put a space between each character in the password
     var password = finalPassword.join('');
-    // currently don't know how to explain this one
     userInput(password);
     return password;
 }
-//currently don't know how to explain this one either
 function userInput(password) {
+    //get final version of password and write to the text area defined by id #password
     document.getElementById("password").textContent = password;
     //log password to console
     console.log("Password: " + password);
@@ -161,9 +161,6 @@ function userInput(password) {
     } else if (confirmUpper) {
         console.log("Password security: Not secure!");
     }
-    
-}
-
-//copy password automatically, display alert: "this password has been copied to your clipboard for your convenience"
+};
 
 //end
