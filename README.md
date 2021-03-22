@@ -29,6 +29,6 @@ To install this code, download the zip file, or use GitHub's guidelines to clone
 * This password generator uses HTML, CSS and JavaScript to create a random password
 * This project highlights the use of JavaScript to make dynamic changes to a HTML document
 
-[](Assets/Images/Screenshot-1.png)
+[hello](Assets/Images/Screenshot-1.png)
 
 
