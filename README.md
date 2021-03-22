@@ -15,7 +15,7 @@ This project has been deployed to GitHub Pages. To use this password generator, 
 * [GitHub Repository](https://github.com/michaelshxw/03-JavaScript-Password-Generator-Homework-Assignment)
 
 ### Prerequisites
-To install this application, a text editor such as Visual Studio Code is required. This can be downloaded [here:](https://code.visualstudio.com/download)
+To install this application, a text editor such as Visual Studio Code is required. This can be downloaded [here](https://code.visualstudio.com/download)
 
 ### Languages Used
 * HTML 
@@ -29,6 +29,6 @@ To install this code, download the zip file, or use GitHub's guidelines to clone
 * This password generator uses HTML, CSS and JavaScript to create a random password
 * This project highlights the use of JavaScript to make dynamic changes to a HTML document
 
-[](Assets/Images/Screenshot-1)
+[](Assets/Images/Screenshot-1.png)
 
 
