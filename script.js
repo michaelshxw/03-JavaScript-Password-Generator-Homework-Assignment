@@ -8,22 +8,17 @@ var comfirmUpper;
 var confirmLower;
 //globally declared variables
 var userSelection;
-
 // start password variable values
 // alphabetical characters
 var fullAlphabet = "a b c d e f g h i j k l m n o p q r s t u v w x y z"
 var alphabet = fullAlphabet.split (' ');
 // convert letters to uppercase 
-// reference "below code demonstrated: REFERENCE "
-var upperCase = function(x) {
-    return x.toUpperCase();
-};
-// create a variable to store the uppercase characters
-var alphabetUppercase = alphabet.map(upperCase);
+// reference "below code demonstrated: https://attacomsian.com/blog/javascript-array-lowercase-uppercase#:~:text=In%20JavaScript%2C%20you%20can%20use,the%20case%20of%20the%20elements.&text=The%20toUpperCase()%20method%20converts,without%20changing%20the%20original%20string."
+var alphabetUppercase = alphabet.map(letters => letters.toUpperCase());
 // numeric characters
 var number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // special characters
-var character = ["!", "@", "#", "$", "%", "&", "*", "_", "-", "=", "+", "~", ">", "<", "[", "]", "{", "}", "|"]
+var character = ["!", "@", "#", "$", "%", "&", "*", "_", "-", "=", "+", "~", ">", "<", "[", "]"]
 
 // get the generate button and assign it to variable generateBtn
 var generateBtn = document.querySelector('#generate')
@@ -38,7 +33,7 @@ generateBtn.addEventListener("click", function() {
 function generatePassword() {
     
     //parseInt ensures the output is a number
-    //reference: httpassword://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+    //reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt
     var passwordLength = parseInt(prompt("Number of characters: (Min 8, Max 128)", "8")); 
     
     // first if statement
@@ -50,16 +45,16 @@ function generatePassword() {
         passwordLength = parseInt(prompt("Error: You must choose a number between 8-128"));
     } else {
         //otherwise, confirm which parameters the user would like to include
-        confirmNumber = confirm("Would you like to include numbers?");
-        confirmCharacter = confirm("Would you like to include symbols?");
-        confirmUpper = confirm("Would you like to include uppercase characters?");
-        confirmLower = confirm("Would you like to include lowercase characters?");
+        confirmNumber = confirm("Would you like to include numbers? If no, click cancel");
+        confirmCharacter = confirm("Would you like to include symbols? If no, click cancel");
+        confirmUpper = confirm("Would you like to include uppercase characters? If no, click cancel");
+        confirmLower = confirm("Would you like to include lowercase characters? If no, click cancel");
     };
 
     //if statements for user selections
     //4 negative selections
     if (!confirmNumber && !confirmCharacter && !confirmUpper && !confirmLower) {
-        userSelection = alert("You must choose at least one character type!");
+        userSelection = alert("Error: You must choose at least one character type");
     }
     //4 positive selections
     else if (confirmNumber && confirmCharacter && confirmUpper && confirmLower) {
@@ -100,7 +95,7 @@ function generatePassword() {
         userSelection = alphabetUppercase;
     }
     //empty array to store final password
-    var finalPassword = [""];
+    var finalPassword = [];
     //randomly select characters based on userSelection
     for (var i = 0; i < passwordLength; i++) {
     var randomPassword = userSelection[Math.floor(Math.random() * userSelection.length)];
@@ -120,10 +115,53 @@ function generatePassword() {
 function userInput(password) {
     document.getElementById("password").textContent = password;
     //log password to console
-    console.log(password);
+    console.log("Password: " + password);
     //log password length to console
     console.log("Password length: " + password.length);
-    //add more "password facts" here and log to console
+
+    //password security test (please note this is a gimmick to show an example of this code
+    //i'm sure a 128 character password featuring only lowercase, randomly generated characters will
+    //probably be secure haha!)
+
+    //if 4 positive selections = high security
+    if (confirmNumber && confirmCharacter && confirmUpper && confirmLower) {
+        console.log("Password security: High Security!");
+    }
+    //if 3 positive selections = moderate security
+    else if (confirmNumber && confirmCharacter && confirmLower){
+        console.log("Password security: Moderate Security!");
+    } else if (confirmNumber && confirmCharacter && confirmUpper){
+        console.log("Password security: Moderate Security!");
+    } else if (confirmNumber && confirmUpper && confirmLower){
+        console.log("Password security: Moderate Security!");
+    } else if (confirmCharacter && confirmUpper && confirmLower){
+        console.log("Password security: Moderate Security!");
+    }
+    //if 2 positive selections = low security
+    else if (confirmNumber && confirmCharacter){
+        console.log("Password security: Low Security!");
+    } else if (confirmNumber && confirmUpper){
+        console.log("Password security: Low Security!");
+    } else if (confirmNumber && confirmLower){
+        console.log("Password security: Low Security!");
+    } else if (confirmCharacter && confirmUpper){
+        console.log("Password security: Low Security!");
+    } else if (confirmCharacter && confirmLower){
+        console.log("Password security: Low Security!");
+    } else if (confirmUpper && confirmLower){
+        console.log("Password security: Low Security!");
+    }
+    //if 1 positive selection = no security at all
+    else if (confirmNumber) {
+        console.log("Password security: Not secure!");
+    } else if (confirmCharacter) {
+        console.log("Password security: Not secure!");
+    } else if (confirmLower) {
+        console.log("Password security: Not secure!");
+    } else if (confirmUpper) {
+        console.log("Password security: Not secure!");
+    }
+    
 }
 
 //copy password automatically, display alert: "this password has been copied to your clipboard for your convenience"
