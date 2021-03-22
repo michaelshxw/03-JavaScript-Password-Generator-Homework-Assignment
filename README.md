@@ -64,8 +64,6 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 
-### Grading Requirments 
-
 ### Authors
 * **Michael Shaw** (JavaScript) [GitHub Profile](https://github.com/michaelshxw)
 * UWA / Trilogy (HTML and CSS)
